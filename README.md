@@ -1,6 +1,3 @@
-# vue-generic-table
-A simple vue generic table inspired by this [vue example](https://vuejs.org/v2/examples/grid-component.html).
-
 ## Features
 - Search
 - Sortable on the columns
