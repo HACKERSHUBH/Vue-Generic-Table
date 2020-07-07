@@ -32,10 +32,27 @@
         v-model="currentPage"
         :per-page="limit"
       /> -->
-      <pagination
+      <pagination v-if="limit < filteredDataLength"
       v-model="currentPage" 
       :totalRecords="filteredDataLength" 
       :perpage="limit"/>
+      <div v-if="limit < filteredDataLength">
+        <button
+          v-if="limit < filteredDataLength"
+          class="btn btn-primary"
+          @click="setLimit(filteredDataLength)"
+        >
+          Show all ({{ filteredDataLength }}) rows
+        </button>
+      </div>
+      <div v-else>
+        <button
+          class="btn btn-primary"
+          @click="setLimit(initLimit)"
+        >
+          Show less
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -141,6 +158,9 @@ export default {
         return -1;
       }
       return 0;
+    },
+      setLimit(limit) {
+      this.limit = limit;
     },
   },
 };
