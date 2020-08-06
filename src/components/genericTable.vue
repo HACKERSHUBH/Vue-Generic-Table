@@ -118,6 +118,14 @@ export default {
             return value.toLowerCase().indexOf(filterKey) !== -1;
           }));
       }
+      // const searchableKeys = ['id','full_reason_code']
+      //if (filterKey) {
+      //  data = data.filter(row =>
+      //    searchableKeys.some((key) => {
+      //      const value = String(row[key])
+      //      return value.toLowerCase().indexOf(filterKey) !== -1;
+      //    }));
+      //}
       if (this.sortKey) {
         data = data.slice().sort((a, b) => {
           const aValue = a[this.sortKey];
